@@ -167,5 +167,5 @@ while True:
         print("Jusu ivesta data ir laikas neatitinka formato. Pabandykite dar karta")
 
 
-
+# Tikrinam tikrinam 123
 
