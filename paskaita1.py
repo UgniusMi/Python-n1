@@ -196,3 +196,4 @@ Farenheit = int(9 / 5  * temp) + 32
 print(f"Temperatura fareinheitais yra: {Farenheit}")
 
 
+#Opaa
