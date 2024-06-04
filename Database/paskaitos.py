@@ -16,35 +16,35 @@ with conn:
 
 #Paskaitu pridejimas
 
-with conn:
-    c.execute("INSERT INTO paskaita VALUES ('Vadyba', 'Domantas', 40)")
-    c.execute("INSERT INTO paskaita VALUES ('Python', 'Donatas', 80)")
-    c.execute("INSERT INTO paskaita VALUES ('Java', 'Tomas', 80)")
+# with conn:
+#     c.execute("INSERT INTO paskaita VALUES ('Vadyba', 'Domantas', 40)")
+#     c.execute("INSERT INTO paskaita VALUES ('Python', 'Donatas', 80)")
+#     c.execute("INSERT INTO paskaita VALUES ('Java', 'Tomas', 80)")
 
-# Tukme ilgesne nei 50
+# # Tukme ilgesne nei 50
 
-with conn:
-    c.execute("SELECT * FROM paskaita WHERE TRUKME > 50")
-    paskaitos = c.fetchall()
+# with conn:
+#     c.execute("SELECT * FROM paskaita WHERE TRUKME > 50")
+#     paskaitos = c.fetchall()
 
-    print(f"\nPaskaitos kurios vyksta ilgiau nei 50min: {paskaitos}")
+#     print(f"\nPaskaitos kurios vyksta ilgiau nei 50min: {paskaitos}")
     
 
-# pakeiciau paskaitos pavadinima 
+# # pakeiciau paskaitos pavadinima 
 
-with conn:
-    c.execute("UPDATE paskaita SET PAVADINIMAS = 'Python programavimas' WHERE PAVADINIMAS = 'Python'")
+# with conn:
+#     c.execute("UPDATE paskaita SET PAVADINIMAS = 'Python programavimas' WHERE PAVADINIMAS = 'Python'")
 
-# trinam toma
+# # trinam toma
 
-with conn:
-    c.execute ("DELETE FROM paskaita WHERE DESTYTOJAS = 'Tomas'")
-    c.execute("SELECT * FROM paskaita")
-    print(c.fetchall())
+# with conn:
+#     c.execute ("DELETE FROM paskaita WHERE DESTYTOJAS = 'Tomas'")
+#     c.execute("SELECT * FROM paskaita")
+#     print(c.fetchall())
 
-#spausdinam
-with conn:
-    c.execute("SELECT * FROM paskaita")
-    result = c.fetchall()
-    for paskaita in result:
-        print(paskaita)
+# #spausdinam
+# with conn:
+#     c.execute("SELECT * FROM paskaita")
+#     result = c.fetchall()
+#     for paskaita in result:
+#         print(paskaita)
