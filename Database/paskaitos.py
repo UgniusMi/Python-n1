@@ -48,3 +48,6 @@ with conn:
     result = c.fetchall()
     for paskaita in result:
         print(paskaita)
+
+
+#dadesim is githubo
