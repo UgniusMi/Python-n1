@@ -9,20 +9,21 @@ class Library:
     def __init__(self, books_file="Ugniaus_library\\Documents\\books.pkl", records_file='Ugniaus_library\\Documents\\records.pkl'):
         self.books_file = books_file
         self.records_file = records_file
-        self.books = load_books(self.books_file)
+        self.books = load_books()
         self.reader_records = load_reader_records(records_file)
-
+        
+        
    
     def add_book(self, title, author, year, genre, quantity):
         new_book = Book(title, author, year, genre, quantity)
         self.books.append(new_book)
-        save_books(self.books_file, self.books)
+        save_books(new_book)
     
     def remove_old_books(self, age_limit):
         current_year = date.today().year
         self.books = [book for book in self.books if current_year - book.year <= age_limit]
 
-        save_books(self.books_file, self.books)
+        save_books(self.books)
    
 
     def borrow_book(self, title, reader_name, borrow_days=14):
@@ -36,7 +37,7 @@ class Library:
                 new_record = Reader(title, reader_name, datetime.now().date().strftime("%Y-%m-%d"), return_date.strftime("%Y-%m-%d"))
                 self.reader_records.append(new_record) 
                 book.quantity -= 1
-                save_books(self.books_file, self.books)
+                save_books(self.books)
                 save_records(self.records_file, self.reader_records)
                 return '\033[92m'+ f"Book borrowed successfully. Return by {return_date}."+'\033[0m'
         return "\n\U0001F47D  Book not available. \U0001F47D"
@@ -49,7 +50,7 @@ class Library:
                     if book.title == title:
                         book.quantity += 1
                         break
-                save_books(self.books_file, self.books)
+                save_books(self.books)
                 save_records(self.records_file, self.reader_records)
                 return "Book returned successfully."
         return "You have entered an incorrect name or book title."
